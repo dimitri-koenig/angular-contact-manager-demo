@@ -78,6 +78,7 @@ gulp.task('appVendorScripts', function ()
 		dirs.vendor + 'angular-animate/angular-animate.js',
 		dirs.vendor + 'angular-uuid-service/angular-uuid-service.js',
 		dirs.vendor + 'angular-messages/angular-messages.js',
+		dirs.vendor + 'angular-socket-io/socket.js',
 		dirs.vendor + 'faker/build/build/faker.js',
 	];
 
@@ -185,8 +186,11 @@ gulp.task('styles', function ()
 
 gulp.task('copyAssets', function ()
 {
-	return gulp.src(dirs.vendor + 'fontawesome/fonts/*')
+	gulp.src(dirs.vendor + 'fontawesome/fonts/*')
 		.pipe(gulp.dest(outputDir + dirs.fonts));
+
+	gulp.src(dirs.app + 'images/**/*')
+		.pipe(gulp.dest(outputDir + dirs.public_assets + 'images/'));
 });
 
 gulp.task('copyRootFiles', function ()

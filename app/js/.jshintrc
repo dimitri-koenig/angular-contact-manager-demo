@@ -12,7 +12,9 @@
     "FastClick": true,
     "ga": true,
     "angular": true,
-    "faker": true
+    "faker": true,
+    "socket": true,
+    "io": true
   },
   "node" : false,
   "browser" : false,

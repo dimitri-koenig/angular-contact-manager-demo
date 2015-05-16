@@ -1,6 +1,9 @@
-angular.module('starterapp').controller('ContactsDetailsController', function($scope, ContactsService, contact, $state) {
+angular.module('starterapp').controller('ContactsDetailsController', function($scope, ContactsService, contact, $state, $timeout) {
 	var originalContact = contact;
 	$scope.contact = angular.copy(originalContact);
+
+	$scope.isSaving = false;
+	$scope.savingText = 'Save';
 
 	$scope.edit = function() {
 		$state.go('contacts.detail.edit', {id: contact.guid});
@@ -22,7 +25,23 @@ angular.module('starterapp').controller('ContactsDetailsController', function($s
 	};
 
 	$scope.save = function() {
+		//SocketService.emit('demo:save');
+		$scope.isSaving = true;
+
 		ContactsService.update(originalContact, $scope.contact);
 		$state.go('contacts.detail', {id: contact.guid});
 	};
+
+/*
+	SocketService.on('demo:save-progress', function (data) {
+		$scope.savingText = data.message;
+
+		if (data.finished) {
+			$timeout(function() {
+				ContactsService.update(originalContact, $scope.contact);
+				$state.go('contacts.detail', {id: contact.guid});
+			}, 1500);
+		}
+	});
+*/
 });

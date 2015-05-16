@@ -17,7 +17,11 @@
 		<button type="button" class="btn btn-danger" ng-click="delete()">Delete</button>
 
 		<div class="btn-group pull-right">
-			<button type="submit" class="btn btn-primary" ng-click="save()" ng-disabled="!form.$dirty || !form.$valid">Save</button>
+			<button type="submit" class="btn btn-primary" ng-click="save()" ng-disabled="isSaving && !form.$dirty || !form.$valid">
+				{{savingText}}
+				<img src="/assets/images/loader.gif" ng-if="isSaving" />
+			</button>
+
 			<button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
 		</div>
 	</div>
