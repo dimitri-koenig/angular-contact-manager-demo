@@ -22,7 +22,7 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'ngMessages
 				title: 'New Contact',
 
 				views: {
-					'detail@contacts': {
+					'content@contacts': {
 						controller: 'ContactsNewController',
 						templateUrl: '/templates/contacts/contacts.new.html'
 					}
@@ -41,7 +41,7 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'ngMessages
 				},
 
 				views: {
-					'detail@contacts': {
+					'content@contacts': {
 						controller: 'ContactsDetailsController',
 						templateUrl: '/templates/contacts/contacts.detail.html'
 					}
@@ -51,7 +51,7 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'ngMessages
 				url: '/edit',
 
 				views: {
-					'detail@contacts': {
+					'content@contacts': {
 						controller: 'ContactsDetailsController',
 						templateUrl: '/templates/contacts/contacts.edit.html'
 					}
