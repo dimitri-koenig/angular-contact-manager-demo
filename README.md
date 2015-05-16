@@ -1,4 +1,4 @@
-# Small AngularJS App Boilerplate
+# AngularJS Demo Application for AngularJS Coachign Days
 
 ## Installation
 
@@ -13,7 +13,3 @@ For development you can run `gulp serve` in your shell in your repo root folder.
 ## Testing
 
 For testing you can run `karma start` in your shell in your repo root folder
-
-## Production Build
-
-For your production build you can run `gulp build` in your shell in your repo root folder. All the production ready files will be build to the `build` folder within your root repo folder.
