@@ -76,6 +76,7 @@ gulp.task('appVendorScripts', function ()
 		dirs.vendor + 'angular-sanitize/angular-sanitize.js',
 		dirs.vendor + 'angular-animate/angular-animate.js',
 		dirs.vendor + 'angular-uuid-service/angular-uuid-service.js',
+		dirs.vendor + 'angular-messages/angular-messages.js',
 		dirs.vendor + 'faker/build/build/faker.js',
 	];
 

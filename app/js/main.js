@@ -1,4 +1,4 @@
-angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'uuid'])
+angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'ngMessages', 'uuid'])
 	.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
 
@@ -9,8 +9,7 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'uuid'])
 
 				views: {
 					'@': {
-						controller: 'ContactsController',
-						templateUrl: '/templates/contacts/contacts.html',
+						templateUrl: '/templates/contacts/contacts.html'
 					},
 					'list@contacts': {
 						controller: 'ContactsListController',

@@ -28,5 +28,8 @@
     "fontawesome": "~4.3.0",
     "faker": "https://github.com/marak/Faker.js.git#master",
     "angular-uuid-service": "~0.1.0"
+  },
+  "devDependencies": {
+    "angular-messages": "~1.3.15"
   }
 }
