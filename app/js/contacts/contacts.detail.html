@@ -11,23 +11,29 @@
 </div>
 
 <dl class="dl-horizontal">
-	<dt>Email</dt>
-	<dd>{{contact.email}}</dd>
+	<div ng-if="contact.email">
+		<dt>Email</dt>
+		<dd>{{contact.email}}</dd>
+	</div>
 
-	<dt>Phone</dt>
-	<dd>{{contact.phone}}</dd>
+	<div ng-if="contact.phone">
+		<dt>Phone</dt>
+		<dd>{{contact.phone}}</dd>
+	</div>
 
-	<dt>Address</dt>
-	<dd class="with-linebreaks">{{contact.address}}</dd>
+	<div ng-if="contact.address">
+		<dt>Address</dt>
+		<dd class="with-linebreaks">{{contact.address}}</dd>
+	</div>
 </dl>
 
-<div class="well"><p>{{contact.note}}</p></div>
+<div class="well" ng-if="contact.note"><p class="with-linebreaks">{{contact.note}}</p></div>
 
 <div class="action-buttons">
-	<button type="button" class="btn btn-default">Add</button>
+	<button type="button" class="btn btn-default" ng-click="new()">Add new</button>
 
 	<div class="btn-group pull-right">
-		<button type="button" class="btn btn-default">Edit</button>
+		<button type="button" class="btn btn-default" ng-click="edit()">Edit</button>
 		<button type="button" class="btn btn-default">Export</button>
 	</div>
 </div>

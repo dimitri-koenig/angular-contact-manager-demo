@@ -6,6 +6,7 @@
     "setTimeout": true,
     "clearTimeout": true,
     "setInterval": true,
+    "confirm": true,
     "$": true,
     "_": true,
     "FastClick": true,

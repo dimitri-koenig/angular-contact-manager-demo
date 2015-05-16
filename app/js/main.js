@@ -1,4 +1,4 @@
-angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate'])
+angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate', 'uuid'])
 	.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
 
@@ -18,6 +18,17 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate'])
 					}
 				}
 			})
+			.state('contacts.new', {
+				url: 'contact/new',
+				title: 'New Contact',
+
+				views: {
+					'detail@contacts': {
+						controller: 'ContactsNewController',
+						templateUrl: '/templates/contacts/contacts.new.html'
+					}
+				}
+			})
 			.state('contacts.detail', {
 				url: 'contact/{id:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}}',
 				title: 'Contact Detail',
@@ -34,6 +45,16 @@ angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate'])
 					'detail@contacts': {
 						controller: 'ContactsDetailsController',
 						templateUrl: '/templates/contacts/contacts.detail.html'
+					}
+				}
+			})
+			.state('contacts.detail.edit', {
+				url: '/edit',
+
+				views: {
+					'detail@contacts': {
+						controller: 'ContactsDetailsController',
+						templateUrl: '/templates/contacts/contacts.edit.html'
 					}
 				}
 			})

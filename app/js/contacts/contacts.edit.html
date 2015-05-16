@@ -1,0 +1,22 @@
+<div class="jumbotron">
+	<div class="media">
+		<div class="media-left">
+			<img src="{{contact.picture}}" class="img-rounded" width="150" height="150" />
+		</div>
+		<div class="media-body">
+			<h1 class="media-heading">{{contact.name.first}} {{contact.name.last}}</h1>
+			<p>{{contact.company}}</p>
+		</div>
+	</div>
+</div>
+
+<div data-ng-include="'/templates/contacts/contacts.newedit.form.html'"></div>
+
+<div class="action-buttons">
+	<button type="button" class="btn btn-danger" ng-click="delete()">Delete</button>
+
+	<div class="btn-group pull-right">
+		<button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+		<button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
+	</div>
+</div>
