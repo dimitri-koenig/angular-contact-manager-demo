@@ -1,0 +1,33 @@
+<div class="jumbotron">
+	<div class="media">
+		<div class="media-left">
+			<img src="{{contact.picture}}" class="img-rounded" width="150" height="150" />
+		</div>
+		<div class="media-body">
+			<h1 class="media-heading">{{contact.name.first}} {{contact.name.last}}</h1>
+			<p>{{contact.company}}</p>
+		</div>
+	</div>
+</div>
+
+<dl class="dl-horizontal">
+	<dt>Email</dt>
+	<dd>{{contact.email}}</dd>
+
+	<dt>Phone</dt>
+	<dd>{{contact.phone}}</dd>
+
+	<dt>Address</dt>
+	<dd class="with-linebreaks">{{contact.address}}</dd>
+</dl>
+
+<div class="well"><p>{{contact.note}}</p></div>
+
+<div class="action-buttons">
+	<button type="button" class="btn btn-default">Add</button>
+
+	<div class="btn-group pull-right">
+		<button type="button" class="btn btn-default">Edit</button>
+		<button type="button" class="btn btn-default">Export</button>
+	</div>
+</div>

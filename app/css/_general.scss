@@ -1,0 +1,22 @@
+* {
+	&:active,
+	&:focus {
+		outline: none !important;
+	}
+}
+
+a {
+	transition: all 0.5s ease 0s;
+
+	&:hover {
+		transition: all 0.5s ease 0s;
+	}
+}
+
+.img-rounded {
+	border-radius: 1000px;
+}
+
+.with-linebreaks {
+	white-space: pre-line;
+}

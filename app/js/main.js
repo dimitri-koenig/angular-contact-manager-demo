@@ -1,13 +1,41 @@
-angular.module('starterapp', ['templates', 'ui.router'])
+angular.module('starterapp', ['templates', 'ui.router', 'ngAnimate'])
 	.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
 
 		$stateProvider
-			.state('home', {
+			.state('contacts', {
 				url: '/',
-				controller: 'HomeController',
-				templateUrl: '/templates/home/home.html',
-				title: 'Home'
+				title: 'Contacts',
+
+				views: {
+					'@': {
+						controller: 'ContactsController',
+						templateUrl: '/templates/contacts/contacts.html',
+					},
+					'list@contacts': {
+						controller: 'ContactsListController',
+						templateUrl: '/templates/contacts/contacts.list.html'
+					}
+				}
+			})
+			.state('contacts.detail', {
+				url: 'contact/{id:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}}',
+				title: 'Contact Detail',
+
+				resolve: {
+					contact: function($stateParams, ContactsService) {
+						return ContactsService.findById($stateParams.id).then(function(data) {
+							return data;
+						});
+					}
+				},
+
+				views: {
+					'detail@contacts': {
+						controller: 'ContactsDetailsController',
+						templateUrl: '/templates/contacts/contacts.detail.html'
+					}
+				}
 			})
 			.state('about', {
 				url: '/about',
@@ -18,9 +46,12 @@ angular.module('starterapp', ['templates', 'ui.router'])
 
 		$urlRouterProvider.otherwise('/');
 	})
-	.run(function ($rootScope)
+	.run(function ($rootScope, $state, $stateParams)
 	{
 		$rootScope.$on('$stateChangeSuccess', function(event, toState) {
 			$rootScope.pageTitle = toState.title || '';
 		});
+
+		$rootScope.$state = $state;
+		$rootScope.$stateParams = $stateParams;
 	});

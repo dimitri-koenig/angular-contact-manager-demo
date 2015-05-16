@@ -74,6 +74,7 @@ gulp.task('appVendorScripts', function ()
 		dirs.vendor + 'moment/locale/de.js',
 		dirs.vendor + 'angular-ui-router/release/angular-ui-router.js',
 		dirs.vendor + 'angular-sanitize/angular-sanitize.js',
+		dirs.vendor + 'angular-animate/angular-animate.js',
 		dirs.vendor + 'faker/build/build/faker.js',
 	];
 
