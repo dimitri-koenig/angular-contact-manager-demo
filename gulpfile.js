@@ -17,7 +17,8 @@ var config = require('./gulpconfig.json'),
 	growler = require('growler'),
 	http = require('http'),
 	express = require('express'),
-	morgan = require('morgan');
+	morgan = require('morgan'),
+	order = require('gulp-order');
 
 // Init Growler
 var growl = new growler.GrowlApplication('Growl Notifications', {
@@ -97,6 +98,10 @@ gulp.task('appVendorScripts', function ()
 gulp.task('appScripts', function ()
 {
 	var runningTask = gulp.src([dirs.frontendApp + '**/*.js', '!' + dirs.frontendApp + 'tests/**/*'])
+		.pipe(order([
+			'init.js',
+			'**/*_module.js'
+		], {base: dirs.frontendApp}))
 		.pipe(plumber(function (err)
 		{
 			console.log(err);
